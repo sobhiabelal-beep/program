@@ -1,0 +1,137 @@
+/* --- إعدادات الخطوط والألوان العامة --- */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --bg-color: #f8f9fa;
+    --text-color: #2b2d42;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+}
+
+/* --- الناف بار (القائمة العلوية) --- */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* --- الكروت (Cards) --- */
+.card {
+    border: none;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    border-bottom: none;
+    padding: 20px;
+}
+
+/* --- الأزرار (Buttons) --- */
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border: none;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.6);
+}
+
+/* --- حقول الإدخال (Inputs) --- */
+.form-control, .form-select {
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+    padding: 12px;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.15);
+}
+
+/* --- تنسيق الجدول (Schedule Table) --- */
+.table-custom {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.table-custom th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.table-custom td {
+    background-color: white;
+    padding: 15px;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.table-custom tr:hover td {
+    background-color: #f1f7ff;
+}
+
+/* --- الشات بوت (Chatbox) --- */
+#chat-box {
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-radius: 0 0 15px 15px;
+}
+
+.msg-user {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px;
+    display: inline-block;
+    max-width: 80%;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.msg-bot {
+    background: white;
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 15px 15px 15px 0;
+    display: inline-block;
+    max-width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* --- تحسينات للموبايل --- */
+@media (max-width: 768px) {
+    .display-4 { font-size: 2.5rem; }
+    .card { margin-bottom: 20px; }
+}

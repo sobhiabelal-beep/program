@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="card shadow p-4 mx-auto animate__animated animate__fadeInUp" style="max-width: 800px;">
+        <h3 class="text-center fw-bold text-primary mb-4">جدولك ومواعيدك 📅</h3>
+        <p class="text-muted text-center">اكتب مواعيد دروسك والمدرسة عشان الجدول يطلع مظبوط.</p>
+        <form action="/schedule_info" method="POST">
+            <div class="row g-3">
+                {% for day in ['السبت', 'الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة'] %}
+                <div class="col-md-6">
+                    <label class="fw-bold text-primary">{{ day }}</label>
+                    <input type="text" name="routine_{{ day }}" class="form-control" placeholder="مثلاً: مدرسة 8-2، درس فيزياء 5-7">
+                </div>
+                {% endfor %}
+            </div>
+            <button class="btn btn-success w-100 mt-4 rounded-pill py-2 fw-bold">بدء اختبار المستوى 🧠</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

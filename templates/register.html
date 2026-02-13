@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <div class="card shadow p-5 mx-auto animate__animated animate__fadeInUp" style="max-width: 600px;">
+        <h3 class="text-center fw-bold text-primary mb-4">بيانات الطالب 📝</h3>
+        <form action="/register" method="POST">
+            <div class="mb-3"><label>الاسم</label><input type="text" name="name" class="form-control" required></div>
+            <div class="row">
+                <div class="col-6 mb-3"><label>المرحلة</label>
+                    <select name="grade" class="form-select"><option>الثانوية العامة</option><option>الإعدادية</option><option>الابتدائية</option></select>
+                </div>
+                <div class="col-6 mb-3"><label>السنة</label>
+                    <select name="stage" class="form-select"><option>الصف الأول</option><option>الصف الثاني</option><option>الصف الثالث</option></select>
+                </div>
+            </div>
+            <button class="btn btn-primary w-100 rounded-pill py-2 fw-bold">التالي ⬅️</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

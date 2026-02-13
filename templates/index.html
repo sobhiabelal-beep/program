@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5 mt-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6 text-end animate__animated animate__fadeInRight">
+            <h1 class="display-4 fw-bold text-primary mb-3">مستقبلك يبدأ بخطة 🚀</h1>
+            <p class="lead text-muted mb-4">منصة ذكية بتحلل مستواكِ وتعملك جدول مذاكرة مفصل على مقاس يومك.</p>
+            <div class="card shadow-lg p-4">
+                <h5 class="fw-bold mb-3"><i class="fas fa-lock text-warning me-2"></i> تسجيل الدخول بالكود</h5>
+                <form action="/" method="POST">
+                    <div class="input-group">
+                        <input type="text" name="access_code" class="form-control rounded-start-pill text-center" placeholder="X1Y2" required maxlength="4">
+                        <button class="btn btn-primary rounded-end-pill px-4 fw-bold">دخول</button>
+                    </div>
+                    {% if error %}<div class="text-danger small mt-2 fw-bold">{{ error }}</div>{% endif %}
+                </form>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center animate__animated animate__zoomIn">
+            <img src="https://img.freepik.com/free-vector/learning-concept-illustration_114360-6186.jpg" class="img-fluid rounded-4 shadow" alt="Education">
+        </div>
+    </div>
+</div>
+{% endblock %}

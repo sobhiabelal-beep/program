@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card shadow border-0 mb-4 animate__animated animate__fadeInRight">
+                <div class="card-header bg-primary text-white fw-bold">📊 خطتك اليومية</div>
+                <div class="card-body" id="planContent">{{ plan | safe }}</div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card shadow border-0 sticky-top animate__animated animate__fadeInLeft" style="top:20px; height:80vh;">
+                <div class="card-header bg-dark text-white fw-bold">🤖 المساعد الذكي</div>
+                <div id="chat-box" class="card-body overflow-auto bg-light"></div>
+                <div class="p-2 border-top bg-white">
+                    <div class="input-group">
+                        <input id="msg" type="text" class="form-control" placeholder="اسألني...">
+                        <button onclick="send()" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    async function send(){
+        let i=document.getElementById('msg'), b=document.getElementById('chat-box');
+        if(!i.value)return;
+        b.innerHTML+=`<div class="mb-2 text-start"><span class="bg-primary text-white p-2 rounded">${i.value}</span></div>`;
+        let res=await fetch('/ask-bot',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:i.value})});
+        let d=await res.json();
+        b.innerHTML+=`<div class="mb-2 text-end"><span class="bg-white border p-2 rounded">${d.reply}</span></div>`;
+        i.value=''; b.scrollTop=b.scrollHeight;
+    }
+</script>
+{% endblock %}
